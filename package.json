@@ -1,0 +1,16 @@
+{
+  "name": "cat-hackathon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ShawarmaChonkers",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "firebase": "^10.12.5",
+    "firebase-admin": "^12.3.1"
+  }
+}
