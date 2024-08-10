@@ -1,0 +1,75 @@
+div id="section-tires" style="display: none;">
+                <div class="section-title">Tires</div>
+
+                <div class="form-group">
+                    <label for="tirePressureLeftFront">Tire Pressure for Left Front:</label>
+                    <input type="text" id="tirePressureLeftFront" class="form-control" placeholder="Enter tire pressure for left front" required>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="tirePressureRightFront">Tire Pressure for Right Front:</label>
+                    <input type="text" id="tirePressureRightFront" class="form-control" placeholder="Enter tire pressure for right front" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireConditionLeftFront">Tire Condition for Left Front:</label>
+                    <select id="tireConditionLeftFront" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Needs Replacement">Needs Replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireConditionRightFront">Tire Condition for Right Front:</label>
+                    <select id="tireConditionRightFront" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Needs Replacement">Needs Replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tirePressureLeftRear">Tire Pressure for Left Rear:</label>
+                    <input type="text" id="tirePressureLeftRear" class="form-control" placeholder="Enter tire pressure for left rear" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tirePressureRightRear">Tire Pressure for Right Rear:</label>
+                    <input type="text" id="tirePressureRightRear" class="form-control" placeholder="Enter tire pressure for right rear" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireConditionLeftRear">Tire Condition for Left Rear:</label>
+                    <select id="tireConditionLeftRear" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Needs Replacement">Needs Replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireConditionRightRear">Tire Condition for Right Rear:</label>
+                    <select id="tireConditionRightRear" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Needs Replacement">Needs Replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireSummary">Overall Tire Summary:</label>
+                    <textarea id="tireSummary" class="form-control" maxlength="1000" placeholder="Enter tire summary"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireImages">Attach images:</label>
+                    <input type="file" id="tireImages" class="form-control" accept="image/*" multiple>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" onclick="showSection('section-header')">Back: Header</button>
+                    <button type="button" onclick="showSection('section-battery')">Next: Battery</button>
+                </div>
+            </div>

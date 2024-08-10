@@ -1,0 +1,78 @@
+<div id="section-header">
+    <div class="section-title">Basic Information</div>
+    <div class="form-group">
+        <label for="truckSerialNumber">Truck Serial Number</label>
+        <input type="text" id="truckSerialNumber" name="truckSerialNumber" placeholder="Enter truck serial number" required>
+    </div>
+
+    <div class="form-group">
+        <label for="truckModel">Truck Model</label>
+        <input type="text" id="truckModel" name="truckModel" placeholder="Enter truck model" required>
+    </div>
+
+    <div class="form-group">
+        <label for="inspectionId">Inspection ID</label>
+        <input type="text" id="inspectionId" name="inspectionId" placeholder="Auto-generated" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="inspectorName">Inspector Name</label>
+        <input type="text" id="inspectorName" name="inspectorName" placeholder="Enter inspector name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="inspectorEmployeeId">Inspection Employee ID</label>
+        <input type="text" id="inspectorEmployeeId" name="inspectorEmployeeId" placeholder="Enter employee ID" required>
+    </div>
+
+    <div class="form-group">
+        <label for="inspectionDateTime">Date & Time of Inspection</label>
+        <input type="datetime-local" id="inspectionDateTime" name="inspectionDateTime" required>
+    </div>
+
+    <div class="form-group">
+        <label for="inspectionLocation">Location of Inspection</label>
+        <input type="text" id="inspectionLocation" name="inspectionLocation" placeholder="Enter location of inspection" required>
+    </div>
+
+    <div class="form-group">
+        <label for="geoCoordinates">Geo Coordinates of Inspection (Optional)</label>
+        <input type="text" id="geoCoordinates" name="geoCoordinates" placeholder="Enter geo coordinates (optional)">
+    </div>
+
+    <div class="form-group">
+        <label for="serviceMeterHours">Service Meter Hours</label>
+        <input type="number" id="serviceMeterHours" name="serviceMeterHours" placeholder="Enter odometer reading" required>
+    </div>
+
+    <div class="form-group">
+        <label for="inspectorSignature">Inspector Signature</label>
+        <div class="row">
+            <div class="col-md-12">
+                 <canvas id="sig-canvas" width="620" height="160">
+                     Get a better browser, bro.
+                 </canvas>
+             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary" id="sig-submitBtn">Submit Signature</button>
+                <button class="btn btn-default" id="sig-clearBtn">Clear Signature</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="customerName">Customer Name/Company Name</label>
+        <input type="text" id="customerName" name="customerName" placeholder="Enter customer or company name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="catCustomerId">CAT Customer ID</label>
+        <input type="text" id="catCustomerId" name="catCustomerId" placeholder="Enter CAT customer ID" required>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" onclick="showSection('section-tires')">Next: Tires</button>
+    </div>
+</div>

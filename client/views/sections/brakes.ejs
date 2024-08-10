@@ -1,0 +1,54 @@
+<div id="section-brakes" style="display: none;">
+    <div class="section-title">Brakes</div>
+
+    <div class="form-group">
+        <label for="brakeFluidLevel">Brake Fluid Level:</label>
+        <select id="brakeFluidLevel" class="form-control">
+            <option value="Good">Good</option>
+            <option value="Ok">Ok</option>
+            <option value="Low">Low</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="brakeConditionFront">Brake Condition for Front:</label>
+        <select id="brakeConditionFront" class="form-control">
+            <option value="Good">Good</option>
+            <option value="Ok">Ok</option>
+            <option value="Needs Replacement">Needs Replacement</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="brakeConditionRear">Brake Condition for Rear:</label>
+        <select id="brakeConditionRear" class="form-control">
+            <option value="Good">Good</option>
+            <option value="Ok">Ok</option>
+            <option value="Needs Replacement">Needs Replacement</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="emergencyBrake">Emergency Brake:</label>
+        <select id="emergencyBrake" class="form-control">
+            <option value="Good">Good</option>
+            <option value="Ok">Ok</option>
+            <option value="Low">Low</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="brakeSummary">Brake Overall Summary:</label>
+        <textarea id="brakeSummary" class="form-control" maxlength="1000" placeholder="Enter overall summary of the brakes"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="brakeImages">Attach images:</label>
+        <input type="file" id="brakeImages" class="form-control" accept="image/*" multiple>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" onclick="showSection('section-exterior')">Back: Exterior</button>
+        <button type="button" onclick="showSection('section-engine')">Next: Engine</button>
+    </div>
+</div>

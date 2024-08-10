@@ -1,0 +1,62 @@
+<div id="section-battery" style="display: none;">
+    <div class="section-title">Battery</div>
+
+    <div class="form-group">
+        <label for="batteryMake">Battery Make:</label>
+        <input type="text" id="batteryMake" class="form-control" placeholder="Enter battery make" required>
+    </div>
+
+    <div class="form-group">
+        <label for="batteryReplacementDate">Battery Replacement Date:</label>
+        <input type="date" id="batteryReplacementDate" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="batteryVoltage">Battery Voltage:</label>
+        <input type="text" id="batteryVoltage" class="form-control" placeholder="Enter battery voltage (e.g., 12V)" required>
+    </div>
+
+    <div class="form-group">
+        <label for="batteryWaterLevel">Battery Water Level:</label>
+        <select id="batteryWaterLevel" class="form-control">
+            <option value="Good">Good</option>
+            <option value="Ok">Ok</option>
+            <option value="Low">Low</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="batteryCondition">Condition of Battery (Any damage):</label>
+        <select id="batteryCondition" class="form-control">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+        <div id="batteryConditionImage" style="display: none;">
+            <label for="batteryDamageImage">Attach image of damage:</label>
+            <input type="file" id="batteryDamageImage" class="form-control" accept="image/*">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="batteryLeakRust">Any Leak / Rust in Battery:</label>
+        <select id="batteryLeakRust" class="form-control">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="batterySummary">Battery Overall Summary:</label>
+        <textarea id="batterySummary" class="form-control" maxlength="1000" placeholder="Enter battery summary"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="batteryImages">Attach images:</label>
+        <input type="file" id="batteryImages" class="form-control" accept="image/*" multiple>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" onclick="showSection('section-tires')">Back: Tires</button>
+        <button type="button" onclick="showSection('section-exterior')">Next: Exterior</button>
+    </div>
+</div>

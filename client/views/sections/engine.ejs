@@ -1,0 +1,74 @@
+<div id="section-engine" style="display: none;">
+    <div class="section-title">Engine</div>
+
+    <div class="form-group">
+        <label for="engineDamage">Rust, Dents or Damage in Engine:</label>
+        <select id="engineDamage" class="form-control">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+        <div id="engineDamageDetails" style="display: none;">
+            <label for="engineDamageNotes">Explain in notes:</label>
+            <textarea id="engineDamageNotes" class="form-control" maxlength="1000" placeholder="Enter details about the damage"></textarea>
+            <label for="engineDamageImages">Attach images:</label>
+            <input type="file" id="engineDamageImages" class="form-control" accept="image/*" multiple>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="engineOilCondition">Engine Oil Condition:</label>
+        <select id="engineOilCondition" class="form-control">
+            <option value="Good">Good</option>
+            <option value="Bad">Bad</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="engineOilColor">Engine Oil Color:</label>
+        <select id="engineOilColor" class="form-control">
+            <option value="Clean">Clean</option>
+            <option value="Brown">Brown</option>
+            <option value="Black">Black</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="brakeFluidCondition">Brake Fluid Condition:</label>
+        <select id="brakeFluidCondition" class="form-control">
+            <option value="Good">Good</option>
+            <option value="Bad">Bad</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="brakeFluidColor">Brake Fluid Color:</label>
+        <select id="brakeFluidColor" class="form-control">
+            <option value="Clean">Clean</option>
+            <option value="Brown">Brown</option>
+            <option value="Black">Black</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="engineOilLeak">Any Oil Leak in Engine:</label>
+        <select id="engineOilLeak" class="form-control">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="engineSummary">Overall Summary:</label>
+        <textarea id="engineSummary" class="form-control" maxlength="1000" placeholder="Enter overall summary of the engine"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="engineImages">Attach images:</label>
+        <input type="file" id="engineImages" class="form-control" accept="image/*" multiple>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" onclick="showSection('section-brakes')">Back: Brakes</button>
+        <button type="button" onclick="showSection('section-voice-of-customer')">Next: Voice of Customer</button>
+    </div>
+</div>
