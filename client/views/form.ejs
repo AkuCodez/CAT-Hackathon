@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Arial', sans-serif;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #202124;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: 500;
+            color: #5f6368;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            background-color: #f1f3f4;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #1a73e8;
+            background-color: #fff;
+        }
+        .mic-button {
+            background-color: #f1f3f4;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        .mic-button:focus {
+            outline: none;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            color: #3c4043;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #dadce0;
+            padding-bottom: 10px;
+        }
+        .form-actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .form-actions button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .form-actions button:hover {
+            background-color: #1558b8;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width : 75px;
+            height: 50px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .form-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="form-header">
+            <img src="../../images/cat_logo.png" alt="Company Logo" class="logo">
+            <h1 class="title">Inspection Form</h1>
+            <button onclick="speakText()">Speak OP</button>
+        </div>
+        <form action="/submit-inspection" method="post" enctype="multipart/form-data">
+            <div></div>
+
+            <!-- HEADER Section -->
+            <div id="section-header">
+                <div class="section-title">Basic Information</div>
+                
+                <div class="form-group">
+                    <label for="truckSerialNumber">Truck Serial Number</label>
+                    <input type="text" id="truckSerialNumber" name="truckSerialNumber" placeholder="Enter truck serial number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="truckModel">Truck Model</label>
+                    <input type="text" id="truckModel" name="truckModel" placeholder="Enter truck model" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inspectionId">Inspection ID</label>
+                    <input type="text" id="inspectionId" name="inspectionId" placeholder="Auto-generated" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="inspectorName">Inspector Name</label>
+                    <input type="text" id="inspectorName" name="inspectorName" placeholder="Enter inspector name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inspectorEmployeeId">Inspection Employee ID</label>
+                    <input type="text" id="inspectorEmployeeId" name="inspectorEmployeeId" placeholder="Enter employee ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inspectionDateTime">Date & Time of Inspection</label>
+                    <input type="datetime-local" id="inspectionDateTime" name="inspectionDateTime" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inspectionLocation">Location of Inspection</label>
+                    <input type="text" id="inspectionLocation" name="inspectionLocation" placeholder="Enter location of inspection" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="geoCoordinates">Geo Coordinates of Inspection (Optional)</label>
+                    <input type="text" id="geoCoordinates" name="geoCoordinates" placeholder="Enter geo coordinates (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label for="serviceMeterHours">Service Meter Hours</label>
+                    <input type="number" id="serviceMeterHours" name="serviceMeterHours" placeholder="Enter odometer reading" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inspectorSignature">Inspector Signature</label>
+                    <input type="file" id="inspectorSignature" name="inspectorSignature" class="file-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="customerName">Customer Name/Company Name</label>
+                    <input type="text" id="customerName" name="customerName" placeholder="Enter customer or company name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="catCustomerId">CAT Customer ID</label>
+                    <input type="text" id="catCustomerId" name="catCustomerId" placeholder="Enter CAT customer ID" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" onclick="showSection('section-tires')">Next: Tires</button>
+                </div>
+            </div>
+
+            <!-- TIRES Section -->           
+            <div id="section-tires" style="display: none;">
+                <div class="section-title">Tires</div>
+
+                <div class="form-group">
+                    <label for="tirePressureLeftFront">Tire Pressure for Left Front:</label>
+                    <input type="text" id="tirePressureLeftFront" class="form-control" placeholder="Enter tire pressure for left front" required>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="tirePressureRightFront">Tire Pressure for Right Front:</label>
+                    <input type="text" id="tirePressureRightFront" class="form-control" placeholder="Enter tire pressure for right front" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireConditionLeftFront">Tire Condition for Left Front:</label>
+                    <select id="tireConditionLeftFront" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Needs Replacement">Needs Replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireConditionRightFront">Tire Condition for Right Front:</label>
+                    <select id="tireConditionRightFront" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Needs Replacement">Needs Replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tirePressureLeftRear">Tire Pressure for Left Rear:</label>
+                    <input type="text" id="tirePressureLeftRear" class="form-control" placeholder="Enter tire pressure for left rear" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tirePressureRightRear">Tire Pressure for Right Rear:</label>
+                    <input type="text" id="tirePressureRightRear" class="form-control" placeholder="Enter tire pressure for right rear" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireConditionLeftRear">Tire Condition for Left Rear:</label>
+                    <select id="tireConditionLeftRear" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Needs Replacement">Needs Replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireConditionRightRear">Tire Condition for Right Rear:</label>
+                    <select id="tireConditionRightRear" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Needs Replacement">Needs Replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireSummary">Overall Tire Summary:</label>
+                    <textarea id="tireSummary" class="form-control" maxlength="1000" placeholder="Enter tire summary"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="tireImages">Attach images:</label>
+                    <input type="file" id="tireImages" class="form-control" accept="image/*" multiple>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" onclick="showSection('section-header')">Back: Header</button>
+                    <button type="button" onclick="showSection('section-battery')">Next: Battery</button>
+                </div>
+            </div>
+
+            <!-- BATTERY Section -->
+            <div id="section-battery" style="display: none;">
+                <div class="section-title">Battery</div>
+
+                <div class="form-group">
+                    <label for="batteryMake">Battery Make:</label>
+                    <input type="text" id="batteryMake" class="form-control" placeholder="Enter battery make" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="batteryReplacementDate">Battery Replacement Date:</label>
+                    <input type="date" id="batteryReplacementDate" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="batteryVoltage">Battery Voltage:</label>
+                    <input type="text" id="batteryVoltage" class="form-control" placeholder="Enter battery voltage (e.g., 12V)" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="batteryWaterLevel">Battery Water Level:</label>
+                    <select id="batteryWaterLevel" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="batteryCondition">Condition of Battery (Any damage):</label>
+                    <select id="batteryCondition" class="form-control">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                    <div id="batteryConditionImage" style="display: none;">
+                        <label for="batteryDamageImage">Attach image of damage:</label>
+                        <input type="file" id="batteryDamageImage" class="form-control" accept="image/*">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="batteryLeakRust">Any Leak / Rust in Battery:</label>
+                    <select id="batteryLeakRust" class="form-control">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="batterySummary">Battery Overall Summary:</label>
+                    <textarea id="batterySummary" class="form-control" maxlength="1000" placeholder="Enter battery summary"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="batteryImages">Attach images:</label>
+                    <input type="file" id="batteryImages" class="form-control" accept="image/*" multiple>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" onclick="showSection('section-tires')">Back: Tires</button>
+                    <button type="button" onclick="showSection('section-exterior')">Next: Exterior</button>
+                </div>
+            </div>
+            <script>
+                // Show or hide battery condition image upload based on the selected condition
+                document.getElementById('batteryCondition').addEventListener('change', function() {
+                    const conditionImage = document.getElementById('batteryConditionImage');
+                    conditionImage.style.display = this.value === 'Yes' ? 'block' : 'none';
+                });
+            </script>
+
+            <!-- EXTERIOR Section -->
+            <div id="section-exterior" style="display: none;">
+                <div class="section-title">Exterior</div>
+
+                <div class="form-group">
+                    <label for="exteriorDamage">Rust, Dent or Damage to Exterior:</label>
+                    <select id="exteriorDamage" class="form-control">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                    <div id="exteriorDamageDetails" style="display: none;">
+                        <label for="exteriorDamageNotes">Explain in notes:</label>
+                        <textarea id="exteriorDamageNotes" class="form-control" maxlength="1000" placeholder="Enter details about the damage"></textarea>
+                        <label for="exteriorDamageImages">Attach images:</label>
+                        <input type="file" id="exteriorDamageImages" class="form-control" accept="image/*" multiple>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="oilLeak">Oil Leak in Suspension:</label>
+                    <select id="oilLeak" class="form-control">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exteriorSummary">Overall Summary:</label>
+                    <textarea id="exteriorSummary" class="form-control" maxlength="1000" placeholder="Enter overall summary of the exterior"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="exteriorImages">Attach images:</label>
+                    <input type="file" id="exteriorImages" class="form-control" accept="image/*" multiple>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" onclick="showSection('section-battery')">Back: Battery</button>
+                    <button type="button" onclick="showSection('section-brakes')">Next: Brakes</button>
+                </div>
+            </div>
+            <script>
+                // Show or hide exterior damage details and image upload based on the selected damage option
+                document.getElementById('exteriorDamage').addEventListener('change', function() {
+                    const damageDetails = document.getElementById('exteriorDamageDetails');
+                    damageDetails.style.display = this.value === 'Yes' ? 'block' : 'none';
+                });
+            </script>
+
+            <!-- BRAKES Section -->
+            <div id="section-brakes" style="display: none;">
+                <div class="section-title">Brakes</div>
+
+                <div class="form-group">
+                    <label for="brakeFluidLevel">Brake Fluid Level:</label>
+                    <select id="brakeFluidLevel" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="brakeConditionFront">Brake Condition for Front:</label>
+                    <select id="brakeConditionFront" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Needs Replacement">Needs Replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="brakeConditionRear">Brake Condition for Rear:</label>
+                    <select id="brakeConditionRear" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Needs Replacement">Needs Replacement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="emergencyBrake">Emergency Brake:</label>
+                    <select id="emergencyBrake" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Ok">Ok</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="brakeSummary">Brake Overall Summary:</label>
+                    <textarea id="brakeSummary" class="form-control" maxlength="1000" placeholder="Enter overall summary of the brakes"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="brakeImages">Attach images:</label>
+                    <input type="file" id="brakeImages" class="form-control" accept="image/*" multiple>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" onclick="showSection('section-exterior')">Back: Exterior</button>
+                    <button type="button" onclick="showSection('section-engine')">Next: Engine</button>
+                </div>
+            </div>
+
+            <!-- ENGINE Section -->
+            <div id="section-engine" style="display: none;">
+                <div class="section-title">Engine</div>
+
+                <div class="form-group">
+                    <label for="engineDamage">Rust, Dents or Damage in Engine:</label>
+                    <select id="engineDamage" class="form-control">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                    <div id="engineDamageDetails" style="display: none;">
+                        <label for="engineDamageNotes">Explain in notes:</label>
+                        <textarea id="engineDamageNotes" class="form-control" maxlength="1000" placeholder="Enter details about the damage"></textarea>
+                        <label for="engineDamageImages">Attach images:</label>
+                        <input type="file" id="engineDamageImages" class="form-control" accept="image/*" multiple>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="engineOilCondition">Engine Oil Condition:</label>
+                    <select id="engineOilCondition" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Bad">Bad</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="engineOilColor">Engine Oil Color:</label>
+                    <select id="engineOilColor" class="form-control">
+                        <option value="Clean">Clean</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Black">Black</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="brakeFluidCondition">Brake Fluid Condition:</label>
+                    <select id="brakeFluidCondition" class="form-control">
+                        <option value="Good">Good</option>
+                        <option value="Bad">Bad</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="brakeFluidColor">Brake Fluid Color:</label>
+                    <select id="brakeFluidColor" class="form-control">
+                        <option value="Clean">Clean</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Black">Black</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="engineOilLeak">Any Oil Leak in Engine:</label>
+                    <select id="engineOilLeak" class="form-control">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="engineSummary">Overall Summary:</label>
+                    <textarea id="engineSummary" class="form-control" maxlength="1000" placeholder="Enter overall summary of the engine"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="engineImages">Attach images:</label>
+                    <input type="file" id="engineImages" class="form-control" accept="image/*" multiple>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" onclick="showSection('section-brakes')">Back: Brakes</button>
+                    <button type="button" onclick="showSection('section-voice-of-customer')">Next: Voice of Customer</button>
+                </div>
+            </div>
+
+            <script>
+                // Show or hide engine damage details and image upload based on the selected damage option
+                document.getElementById('engineDamage').addEventListener('change', function() {
+                    const damageDetails = document.getElementById('engineDamageDetails');
+                    damageDetails.style.display = this.value === 'Yes' ? 'block' : 'none';
+                });
+            </script>
+
+            <!-- VOICE OF CUSTOMER Section -->
+            <div id="section-voice-of-customer" style="display: none;">
+                <div class="section-title">Voice of Customer</div>
+
+                <div class="form-group">
+                    <label for="customerFeedback">Any Feedback from Customer:</label>
+                    <textarea id="customerFeedback" class="form-control" placeholder="Enter customer feedback"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerImages">Images Related to Issues Discussed with Customer:</label>
+                    <input type="file" id="customerImages" class="form-control" accept="image/*" multiple>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" onclick="showSection('section-engine')">Back: Engine</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('[id^="section-"]');
+            sections.forEach(section => section.style.display = 'none');
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function startSpeechRecognition(inputId) {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = function(event) {
+                document.getElementById(inputId).value = event.results[0][0].transcript;
+            };
+
+            recognition.onerror = function(event) {
+                console.error(event.error);
+            };
+        }
+
+    function speakText() {
+        // Get all elements with the ID 'abc'
+        const elements = document.querySelectorAll('label');
+
+        // Initialize the SpeechSynthesis API
+        const synth = window.speechSynthesis;
+
+        elements.forEach(element => {
+            // Create a new SpeechSynthesisUtterance
+            const utterance = new SpeechSynthesisUtterance(element.textContent);
+
+            // Speak the text
+            synth.speak(utterance);
+
+            utterance.onend = function() {
+                // Start speech recognition
+                const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+                recognition.onresult = function(event) {
+                    const userInput = event.results[0][0].transcript;
+                    document.getElementById('userInput').value = userInput;
+                };
+
+                recognition.onerror = function(event) {
+                    console.error('Speech recognition error:', event.error);
+                };
+
+                recognition.start();
+            };
+        };
+    }
+    </script>
+</body>
+</html>
