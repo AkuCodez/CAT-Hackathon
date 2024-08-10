@@ -576,7 +576,23 @@
 
             // Speak the text
             synth.speak(utterance);
-        });
+
+            utterance.onend = function() {
+                // Start speech recognition
+                const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+                recognition.onresult = function(event) {
+                    const userInput = event.results[0][0].transcript;
+                    document.getElementById('userInput').value = userInput;
+                };
+
+                recognition.onerror = function(event) {
+                    console.error('Speech recognition error:', event.error);
+                };
+
+                recognition.start();
+            };
+        };
     }
     </script>
 </body>
