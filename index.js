@@ -9,7 +9,11 @@ app.set('views', path.join(__dirname, 'client','views'));
 app.use(express.static(path.join(__dirname, 'client','public')));
 
 app.get('/', (req, res) => {
-  res.render('signin'); // Render the 'index.ejs' file
+  res.render('home'); // Render the 'index.ejs' file
+});
+
+app.get('/signup', (req, res) => {
+  res.render('signup'); 
 });
 
 app.listen(3000, () => {
